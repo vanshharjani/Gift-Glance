@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gift-Glance | Premium Concierge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'midnight-start': '#002424',
+              'midnight-end': '#004d40',
+              'champagne': '#D4AF37',
+              'champagne-light': '#F4CF57',
+              'champagne-dark': '#B59020',
+              'soft-white': '#F5F5F5',
+              'glass-border': 'rgba(255, 255, 255, 0.15)',
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              serif: ['Playfair Display', 'serif'],
+            },
+            boxShadow: {
+              'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.3)',
+              'glow-gold': '0 0 15px rgba(212, 175, 55, 0.3)',
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.6s ease-out forwards',
+              'slide-up': 'slideUp 0.8s ease-out forwards',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Inter', sans-serif;
+        background: linear-gradient(135deg, #002424 0%, #004d40 100%);
+        min-height: 100vh;
+        color: #F5F5F5;
+        overflow-x: hidden;
+      }
+
+      /* Glassmorphism Panel */
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+      }
+
+      /* Minimal Input */
+      .input-minimal {
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        color: #F5F5F5;
+        padding: 10px 0;
+        outline: none;
+        transition: border-color 0.3s ease;
+      }
+      
+      .input-minimal:focus {
+        border-bottom-color: #D4AF37;
+      }
+      
+      .input-minimal::placeholder {
+        color: rgba(245, 245, 245, 0.3);
+      }
+
+      /* Custom Range Slider */
+      input[type=range] {
+        -webkit-appearance: none; 
+        background: transparent; 
+      }
+      input[type=range]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        height: 16px;
+        width: 16px;
+        border-radius: 50%;
+        background: #D4AF37;
+        cursor: pointer;
+        margin-top: -6px; 
+      }
+      input[type=range]::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 4px;
+        cursor: pointer;
+        background: rgba(255,255,255,0.2);
+        border-radius: 2px;
+      }
+
+      /* Data Constellation / AI Alchemy Loader */
+      .alchemy-container {
+        perspective: 1000px;
+        transform-style: preserve-3d;
+      }
+      
+      .orbit-plane {
+        position: absolute;
+        inset: 0;
+        transform-style: preserve-3d;
+      }
+      
+      /* 3 Distinct Planes for Gyroscopic effect */
+      .plane-1 { transform: rotateX(70deg) rotateY(0deg); }
+      .plane-2 { transform: rotateX(70deg) rotateY(60deg); }
+      .plane-3 { transform: rotateX(70deg) rotateY(-60deg); }
+
+      .orbit-ring {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 1px solid rgba(212, 175, 55, 0.15); /* Faint gold path */
+        position: relative;
+        transform-style: preserve-3d;
+      }
+
+      .spin-slow { animation: spinOrbit 3s linear infinite; }
+      .spin-medium { animation: spinOrbit 2.2s linear infinite reverse; }
+      .spin-fast { animation: spinOrbit 1.8s linear infinite; }
+
+      @keyframes spinOrbit {
+        0% { transform: rotateZ(0deg); }
+        100% { transform: rotateZ(360deg); }
+      }
+
+      /* Scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #002424;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #004d40;
+        border-radius: 3px;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^1.33.0",
+    "react/": "https://esm.sh/react@^19.2.1/",
+    "react": "https://esm.sh/react@^19.2.1",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.1/",
+    "react-dom/client": "https://esm.sh/react-dom@^19.2.1/client"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
